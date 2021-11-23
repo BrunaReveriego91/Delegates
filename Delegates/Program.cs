@@ -10,19 +10,15 @@ namespace Delegates
     {
 
         public delegate int MetodoDelegate(string Nome);
+        public delegate void MetodoLambda(int idade);
 
-        //public static int Qualquer(string Pessoa)
-        //{
-        //    Console.WriteLine("Seu Nome: " + Pessoa);
-        //    Console.ReadKey();
-        //    return Pessoa.Length;
-        //}
+
 
         public static void UtilizaDelegate(MetodoDelegate metodoDelegate)
         {
             var letras = metodoDelegate("Maria");
             Console.WriteLine("Quantidade de letras: " + letras);
-            
+
         }
 
 
@@ -31,18 +27,23 @@ namespace Delegates
         {
             /*Utilizando métodos anonimos */
 
-            UtilizaDelegate(delegate (string n) {
-                Console.WriteLine("Nome: " + n);
-                return n.Length;
-            });
+            //UtilizaDelegate((string n) =>
+            //{
+            //    Console.WriteLine("Nome: " + n);
+            //    return n.Length;
+            //});
 
-            MetodoDelegate metodoDelegate = delegate(string n) { 
-                Console.WriteLine("Nome: " + n);
-                return n.Length;
-            };
+            MetodoLambda metodoLambda = (i) => { Console.WriteLine("O número é: " + i); };
+            metodoLambda(23);
 
-            var letras = metodoDelegate("João");
-            Console.WriteLine("Quantidade de letras: " + letras);
+            //MetodoDelegate metodoDelegate = (string n) =>
+            //{
+            //    Console.WriteLine("Nome: " + n);
+            //    return n.Length;
+            //};
+
+            //var letras = metodoDelegate("João");
+            //Console.WriteLine("Quantidade de letras: " + letras);
 
             Console.ReadKey();
 
